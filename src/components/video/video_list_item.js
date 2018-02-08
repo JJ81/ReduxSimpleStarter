@@ -1,11 +1,7 @@
 import React from 'react';
 
-// ()안에처럼 설정하면 그 바로 하단에 선언을 할 필요가 없다. ES6
+
 const VideoListItem = ({ video, onVideoSelect }) => {
-	// const video = props.video;
-	//console.log(video);
-	
-	
 	const imageUrl = video.snippet.thumbnails.default.url;
 	
 	return (
