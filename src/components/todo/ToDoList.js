@@ -3,8 +3,16 @@ import React, { Component } from 'react';
 
 const ToDoList = (prop) => {
 	
-	if(!prop.lists){
-		return (<li>Loading...</li>);
+	if(prop.error){
+		return <div>ERROR!</div>;
+	}
+	
+	if(prop.lists.length === 0){
+		return (
+			<ul>
+				<li>Loading...</li>
+			</ul>
+		);
 	}
 	
 	const item = prop.lists.map((list) => {

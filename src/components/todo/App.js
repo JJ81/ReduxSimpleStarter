@@ -6,7 +6,8 @@ export default class App extends Component {
 	constructor(prop){
 		super(prop);
 		this.state = {
-			lists : []
+			lists : [],
+			error: false
 		};
 	}
 	
@@ -15,8 +16,13 @@ export default class App extends Component {
 			.then( res => {
 				this.setState({lists:res.data});
 			})
-			.catch( err => {
-				console.error(err);
+			.catch( error => {
+				if (error.response) {
+					// console.log(error.response.data);
+					// console.log(error.response.status);
+					// console.log(error.response.headers);
+					this.setState({error:true});
+				}
 			});
 	}
 	
@@ -24,7 +30,7 @@ export default class App extends Component {
 		return (
 			<div>
 				<h3>TODO List</h3>
-				<ToDoList lists={this.state.lists} />
+				<ToDoList lists={this.state.lists} error={this.state.error} />
 			</div>
 		);
 	}
