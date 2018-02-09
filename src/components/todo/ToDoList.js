@@ -18,7 +18,11 @@ const ToDoList = (prop) => {
 	const item = prop.lists.map((list) => {
 		return (
 			<li key={list.id}>
-				<a href="#">{list.title}</a>
+				<a href="#">
+					<strong>{list.title}</strong>
+					{/*<span>{list.userId}</span><br />*/}
+					{/*<span>{list.completed.toString()}</span>*/}
+				</a>
 			</li>
 		);
 	});
